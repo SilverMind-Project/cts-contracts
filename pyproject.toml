@@ -1,0 +1,43 @@
+[project]
+name = "cts-contracts"
+version = "0.1.0"
+description = "Shared wire-contract datatypes for Continuous Tracking (tracking-orchestrator producer + cognitive-companion consumer)"
+requires-python = ">=3.12"
+# The pure-Python vocabulary layer has no runtime dependencies. The generated
+# protobuf SDK (see README, deferred phase) will live under an optional extra so
+# consumers that only need the canonical enums do not pull protobuf.
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "ruff>=0.9.0",
+    "mypy>=1.13.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["cts_contracts*"]
+
+# Ship the PEP 561 marker so consumers' type checkers use the inline annotations.
+[tool.setuptools.package-data]
+cts_contracts = ["py.typed"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "A", "C4", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
