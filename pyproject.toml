@@ -6,7 +6,9 @@ requires-python = ">=3.12"
 # The pure-Python vocabulary layer has no runtime dependencies. The generated
 # protobuf SDK (see README, deferred phase) will live under an optional extra so
 # consumers that only need the canonical enums do not pull protobuf.
-dependencies = []
+dependencies = [
+    "pytest>=8.3.0",
+]
 
 [project.optional-dependencies]
 dev = [

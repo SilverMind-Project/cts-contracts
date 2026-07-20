@@ -2,15 +2,14 @@
 
 These string values ARE the wire/storage/metrics vocabulary. They must equal the
 ``DementiaSignalKind`` / ``DementiaSignalSeverity`` proto enum names (lowercased,
-prefix-stripped) in ``continuoustracking/v1/signals.proto``. Today this vocabulary is
-re-declared independently in at least three places:
+prefix-stripped) in ``continuoustracking/v1/signals.proto``. The publisher, CC
+subscriber, and CC signal_config consume this enum.
 
-* ``tracking-orchestrator/app/domain/__init__.py``  (``DementiaSignalKind = Literal[...]``)
-* ``tracking-orchestrator/app/transport/signal_publisher.py``  (``_KIND_TO_PROTO``)
-* ``cognitive-companion/backend/services/cts/subscriber.py``  (``_PROTO_KIND_TO_STR``)
+Two-sided rule:
+* Wire kinds live here in ``cts_contracts.DementiaSignalKind``.
+* CC-local kinds live in ``signal_config.CC_LOCAL_SIGNAL_KINDS``.
 
-Centralising them here removes that duplication and the drift it invites. ``StrEnum``
-members compare equal to their string value, so existing code that compares against
+``StrEnum`` members compare equal to their string value, so existing code that compares against
 ``"stillness_anomaly"`` keeps working during migration.
 """
 
