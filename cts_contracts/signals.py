@@ -22,7 +22,7 @@ class DementiaSignalKind(StrEnum):
     """A dementia-care behavioural signal kind.
 
     Members and order mirror the wire enum
-    ``continuoustracking.v1.DementiaSignalKind`` (values 1..9; ``UNSPECIFIED`` = 0 is
+    ``continuoustracking.v1.DementiaSignalKind`` (values 1..10; ``UNSPECIFIED`` = 0 is
     intentionally omitted: it is never a valid emitted kind).
     """
 
@@ -35,6 +35,7 @@ class DementiaSignalKind(StrEnum):
     FALL_SUSPECTED = "fall_suspected"
     GAIT_SLOWING = "gait_slowing"
     AGITATION_INDEX = "agitation_index"
+    SAME_CLOTHES_SUSPECTED = "same_clothes_suspected"
 
     @classmethod
     def from_wire(cls, value: str) -> DementiaSignalKind | None:

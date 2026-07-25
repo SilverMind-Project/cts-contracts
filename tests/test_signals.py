@@ -6,7 +6,7 @@ from cts_contracts import DementiaSignalKind, DementiaSignalSeverity
 
 
 def test_kind_members_match_wire_strings() -> None:
-    # The exact wire vocabulary (proto enum values 1..9), in order.
+    # The exact wire vocabulary (proto enum values 1..10), in order.
     assert [k.value for k in DementiaSignalKind] == [
         "pacing",
         "sundowning_index",
@@ -17,6 +17,7 @@ def test_kind_members_match_wire_strings() -> None:
         "fall_suspected",
         "gait_slowing",
         "agitation_index",
+        "same_clothes_suspected",
     ]
 
 
