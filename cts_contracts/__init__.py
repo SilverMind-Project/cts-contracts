@@ -28,20 +28,36 @@ from cts_contracts.signals import (
     DementiaSignalKind,
     DementiaSignalSeverity,
 )
+from cts_contracts.wearables import (
+    AdapterKind,
+    DeviceKind,
+    FixKind,
+    MotionState,
+    RangingTechnology,
+    RfNodeRole,
+    WearState,
+)
 
 __all__ = [
     "ADULT_MEAN_INTERPUPILLARY_M",
     "INTEROCULAR_BANDS_PX",
     "INTEROCULAR_GOOD_MIN_PX",
+    "AdapterKind",
     "CameraRole",
     "DementiaSignalKind",
     "DementiaSignalSeverity",
+    "DeviceKind",
+    "FixKind",
     "InterocularBand",
     "InterocularBandSpec",
+    "MotionState",
+    "RangingTechnology",
+    "RfNodeRole",
+    "WearState",
     "classify_interocular_px",
     "distance_for_interocular_m",
     "expected_interocular_px",
     "focal_length_px",
 ]
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"

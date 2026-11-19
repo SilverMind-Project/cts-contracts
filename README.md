@@ -37,9 +37,16 @@ SDK from it. The `buf.yaml` `breaking: WIRE` gate must be preserved.
 
 ```python
 from cts_contracts import (
+    AdapterKind,
     CameraRole,
     DementiaSignalKind,
     DementiaSignalSeverity,
+    DeviceKind,
+    FixKind,
+    MotionState,
+    RangingTechnology,
+    RfNodeRole,
+    WearState,
     expected_interocular_px,
     focal_length_px,
 )
@@ -49,6 +56,10 @@ assert kind == "stillness_anomaly"          # StrEnum: equals its wire string
 DementiaSignalKind.from_wire("absence")     # -> DementiaSignalKind.ABSENCE
 DementiaSignalKind.from_wire("future_kind")  # -> None (render generically, never crash)
 CameraRole.from_wire("face_capable")        # -> CameraRole.FACE_CAPABLE
+FixKind.from_wire("position")               # -> FixKind.POSITION
+RfNodeRole.from_wire("receiver")            # -> RfNodeRole.RECEIVER
+RangingTechnology.from_wire("ble_rssi")     # -> RangingTechnology.BLE_RSSI
+DeviceKind.from_wire("ble_beacon")          # -> DeviceKind.BLE_BEACON
 focal = focal_length_px(2560, 90.0)         # -> 1280.0 px (pinhole approximation)
 expected_interocular_px(focal, 2.0)         # -> ~40.32 px at 2 m
 ```
