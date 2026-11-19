@@ -36,12 +36,21 @@ SDK from it. The `buf.yaml` `breaking: WIRE` gate must be preserved.
 ## Usage
 
 ```python
-from cts_contracts import DementiaSignalKind, DementiaSignalSeverity
+from cts_contracts import (
+    CameraRole,
+    DementiaSignalKind,
+    DementiaSignalSeverity,
+    expected_interocular_px,
+    focal_length_px,
+)
 
 kind = DementiaSignalKind.STILLNESS_ANOMALY
 assert kind == "stillness_anomaly"          # StrEnum: equals its wire string
 DementiaSignalKind.from_wire("absence")     # -> DementiaSignalKind.ABSENCE
 DementiaSignalKind.from_wire("future_kind")  # -> None (render generically, never crash)
+CameraRole.from_wire("face_capable")        # -> CameraRole.FACE_CAPABLE
+focal = focal_length_px(2560, 90.0)         # -> 1280.0 px (pinhole approximation)
+expected_interocular_px(focal, 2.0)         # -> ~40.32 px at 2 m
 ```
 
 Consume from another repo (matching the `triton-shared` precedent) in `pyproject.toml`:
