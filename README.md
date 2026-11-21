@@ -44,6 +44,7 @@ from cts_contracts import (
     DeviceKind,
     FixKind,
     MotionState,
+    PresenceStatus,
     RangingTechnology,
     RfNodeRole,
     WearState,

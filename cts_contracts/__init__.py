@@ -13,6 +13,7 @@ heavier concern; see ``README.md`` for the two-problem strategy and migration pl
 from __future__ import annotations
 
 from cts_contracts.cameras import CameraRole
+from cts_contracts.household import PresenceStatus
 from cts_contracts.optics import (
     ADULT_MEAN_INTERPUPILLARY_M,
     INTEROCULAR_BANDS_PX,
@@ -51,6 +52,7 @@ __all__ = [
     "InterocularBand",
     "InterocularBandSpec",
     "MotionState",
+    "PresenceStatus",
     "RangingTechnology",
     "RfNodeRole",
     "WearState",
@@ -60,4 +62,4 @@ __all__ = [
     "focal_length_px",
 ]
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
