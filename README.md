@@ -44,25 +44,30 @@ from cts_contracts import (
     DeviceKind,
     FixKind,
     MotionState,
+    PositionSensorModality,
     PresenceStatus,
     RangingTechnology,
     RfNodeRole,
     WearState,
     expected_interocular_px,
     focal_length_px,
+    sensor_id_from_source,
+    source_id_for_sensor,
 )
 
 kind = DementiaSignalKind.STILLNESS_ANOMALY
-assert kind == "stillness_anomaly"          # StrEnum: equals its wire string
-DementiaSignalKind.from_wire("absence")     # -> DementiaSignalKind.ABSENCE
+assert kind == "stillness_anomaly"  # StrEnum: equals its wire string
+DementiaSignalKind.from_wire("absence")  # -> DementiaSignalKind.ABSENCE
 DementiaSignalKind.from_wire("future_kind")  # -> None (render generically, never crash)
-CameraRole.from_wire("face_capable")        # -> CameraRole.FACE_CAPABLE
-FixKind.from_wire("position")               # -> FixKind.POSITION
-RfNodeRole.from_wire("receiver")            # -> RfNodeRole.RECEIVER
-RangingTechnology.from_wire("ble_rssi")     # -> RangingTechnology.BLE_RSSI
-DeviceKind.from_wire("ble_beacon")          # -> DeviceKind.BLE_BEACON
-focal = focal_length_px(2560, 90.0)         # -> 1280.0 px (pinhole approximation)
-expected_interocular_px(focal, 2.0)         # -> ~40.32 px at 2 m
+CameraRole.from_wire("face_capable")  # -> CameraRole.FACE_CAPABLE
+FixKind.from_wire("position")  # -> FixKind.POSITION
+RfNodeRole.from_wire("receiver")  # -> RfNodeRole.RECEIVER
+RangingTechnology.from_wire("ble_rssi")  # -> RangingTechnology.BLE_RSSI
+DeviceKind.from_wire("ble_beacon")  # -> DeviceKind.BLE_BEACON
+focal = focal_length_px(2560, 90.0)  # -> 1280.0 px (pinhole approximation)
+expected_interocular_px(focal, 2.0)  # -> ~40.32 px at 2 m
+source_id_for_sensor("radar-bathroom-1")  # -> "sensor:radar-bathroom-1" (camera_id slot)
+sensor_id_from_source("living-room-2")  # -> None (a camera, not a position sensor)
 ```
 
 Consume from another repo (matching the `triton-shared` precedent) in `pyproject.toml`:

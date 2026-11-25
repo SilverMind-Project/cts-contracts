@@ -1,6 +1,6 @@
 [project]
 name = "cts-contracts"
-version = "0.4.0"
+version = "0.5.0"
 description = "Shared wire-contract datatypes for Continuous Tracking (tracking-orchestrator producer + cognitive-companion consumer)"
 requires-python = ">=3.12"
 # The pure-Python vocabulary layer has no runtime dependencies. The generated
